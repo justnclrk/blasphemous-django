@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'soundboard/style.css' %}">
+    <link rel="shortcut icon" href="#" />
+    <title>soundboard</title>
+</head>
+
+<body>
+    <header>
+        <h1>a blasphemous <span class="color">s</span>oundbo<span class="color">a</span>rd</h1>
+    </header>
+    <div class='container'>
+        {% for sound in sounds %}
+        <a class='button' onclick="document.getElementById('{{sound.name}}').play()" type="button">
+            <audio id="{{sound.name}}">
+                <source src="{{ sound.url }}" type="audio/mpeg">
+            </audio>
+            <span>{{ sound.name }}</span>
+        </a>
+        {% endfor %}
+    </div>
+
+</body>
+
+</html>
